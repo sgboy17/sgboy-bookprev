@@ -18,7 +18,7 @@
         <jdk.version>1.8</jdk.version>
 
         <spring.version>4.3.2.RELEASE</spring.version>
-        <spring-boot.version>1.4.0.RELEASE</spring-boot.version>
+        <spring-boot.version>1.4.2.RELEASE</spring-boot.version>
         <spring-data-jpa.version>1.10.2.RELEASE</spring-data-jpa.version>
 
         <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
@@ -55,7 +55,7 @@
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${jdk.version}</source>
-                    <target>${jdk.version</target>
+                    <target>${jdk.version}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -67,6 +67,11 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/webapp</directory>
+            </resource>
+        </resources>
     </build>
 
 
