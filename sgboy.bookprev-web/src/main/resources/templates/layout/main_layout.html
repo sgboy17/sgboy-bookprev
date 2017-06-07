@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <!-- Bootstrap -->
+    <meta charset="UTF-8"/>
+    <title>Book Prev | Powered by Sgboy17</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="/" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Mihstore Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+
+    <!-- CSS -->
+    <link th:href="@{/css/bootstrap.css}" href="content/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link th:href="@{/css/style.css}" href="content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700' rel='stylesheet' type='text/css' />
+    <link th:href="@{/css/megamenu.css}" href="content/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+
+    <!-- Java Script -->
+    <script th:src="@{/script/jquery.min.js}" src="/static/script/jquery.min.js"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--//slider-script-->
+    <script>$(document).ready(function(c) {
+        $('.alert-close').on('click', function(c){
+            $('.message').fadeOut('slow', function(c){
+                $('.message').remove();
+            });
+        });
+    });
+    </script>
+    <script>$(document).ready(function(c) {
+        $('.alert-close1').on('click', function(c){
+            $('.message1').fadeOut('slow', function(c){
+                $('.message1').remove();
+            });
+        });
+    });
+    </script>
+    <script>$(document).ready(function(c) {
+        $('.alert-close2').on('click', function(c){
+            $('.message2').fadeOut('slow', function(c){
+                $('.message2').remove();
+            });
+        });
+    });
+    </script>
+    <script type="text/javascript" th:src="@{/script/jquery.min.js}" src="script/move-top.js"></script>
+    <script type="text/javascript" th:src="@{/script/easing.js}" src="script/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            });
+        });
+    </script>
+    <script type="text/javascript" th:src="@{/script/megamenu.js}" src="script/megamenu.js"></script>
+    <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+
+
+</head>
+<body>
+    <div class="container">
+        <th:block th:include="fragment/header::header"></th:block>
+        <div class="page">
+            <h6><a href="#">Page Title</a><b>|</b>Page description The quick, brown <span class="for">fox jumps over a lazy dog. DJs flock by when TV ax quiz prog.</span></h6>
+        </div>
+        <div class="content">
+            <th:block layout:fragment="content"></th:block>
+        </div>
+        <th:block th:include="fragment/footer::footer"></th:block>
+    </div>
+
+
+</body>
+</html>
