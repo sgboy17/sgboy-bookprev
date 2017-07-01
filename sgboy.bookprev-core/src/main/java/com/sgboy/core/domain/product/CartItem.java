@@ -26,10 +26,10 @@ public class CartItem implements Serializable {
     @Column(name = "ID", insertable = false, updatable = false)
     private long id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "id")
-//    @JsonIgnore
-//    private Cart cart;
+    @ManyToOne
+    @JoinColumn(name = "cart")
+    @JsonIgnore
+    private Cart cart;
 
 
     @ManyToOne
