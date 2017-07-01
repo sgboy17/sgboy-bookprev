@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/main_layout">
 <body>
@@ -14,10 +15,27 @@
             </div>
             <div class="content-bottom">
                 <h3>Featured products</h3>
-                <div class="bottom-grid">
-                    <div class="col-md-4 shirt">
+
+                    <div th:each="product : ${products}" class="col-md-4 shirt" >
                         <div class="bottom-grid-top">
-                            <a href="single.html"><img class="img-responsive" src="images/sh.png" alt="" />
+                            <a href="single.html"><img class="img-responsive" src="images/sh.png"  alt="" />
+                                <div class="five">
+                                    <h6 >-50%</h6>
+                                </div>
+                                <div class="pre">
+                                    <p th:text="${product.name}">Pure Slim Xe</p>
+                                    <span th:text="${product.price}">$60.00</span>
+                                    <div class="clearfix"> </div>
+                                </div></a>
+
+
+                        </div>
+                    </div>
+
+                <!--<div class="bottom-grid">-->
+                    <div  class="col-md-4 shirt" >
+                        <div class="bottom-grid-top">
+                            <a href="single.html"><img class="img-responsive" src="images/sh.png"  alt="" />
                                 <div class="five">
                                     <h6 >-50%</h6>
                                 </div>
@@ -60,8 +78,8 @@
 
                         </div>
                     </div>
-                    <div class="clearfix"> </div>
-                </div>
+                    <!--<div class="clearfix"> </div>-->
+                <!--</div>-->
                 <div class="bottom-grid">
                     <div class="col-md-4 shirt">
                         <div class="bottom-grid-top">
