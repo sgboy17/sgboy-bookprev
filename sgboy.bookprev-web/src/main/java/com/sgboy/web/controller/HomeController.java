@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.thymeleaf.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,9 +32,23 @@ public class HomeController {
     @RequestMapping(value = "/single/{productId}", method = RequestMethod.GET)
     public String single(@PathVariable  long productId, Model model){
         Product product = productRepository.findOne(productId);
-        model.addAttribute("product", product);
+        if(product != null)
+        {
+            model.addAttribute("product", product);
+        }
         model.addAttribute("test", "abc");
         return "home/single";
+    }
+
+    @RequestMapping(value = "/cart", method = RequestMethod.GET)
+    public String viewCart(Model model, HttpServletRequest request){
+        String sessionId  = request.getSession(true).getId();
+        System.out.println(sessionId);
+        if(!StringUtils.isEmpty(sessionId))
+        {
+            model.addAttribute("sessionId", sessionId);
+        }
+        return "home/cart";
     }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)

@@ -3,33 +3,36 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/main_layout">
-<body>
+<body >
     <div layout:fragment="content">
-        <div class="col-md-9">
+        <!--<span th:text="${test}">a</span>-->
+        <!--<span th:text="${product.name}">a</span>-->
+        <div class="col-md-9" ng-app="bookprev">
             <div class="col-md-5 single-top">
                 <ul id="etalage">
                     <li>
                         <a href="optionallink.html">
-                            <img class="etalage_thumb_image img-responsive" src="images/item1_details_small.jpg" alt="" />
-                            <img class="etalage_source_image img-responsive" src="images/item1_details_large.jpg" alt="" />
+                            <img class="etalage_thumb_image img-responsive"  th:src="@{/images/} + ${product.description} + '_details_small.jpg'"  alt="" />
+                            <!--<img class="etalage_source_image img-responsive" src="images/item1_details_large.jpg" alt="" />-->
                         </a>
                     </li>
-                    <li>
-                        <img class="etalage_thumb_image img-responsive" src="images/item1_detail2.png" alt="" />
-                        <img class="etalage_source_image img-responsive" src="images/item1_detail2.png" alt="" />
-                    </li>
-                    <li>
-                        <img class="etalage_thumb_image img-responsive" src="images/item1_detail3.png" alt=""  />
-                        <img class="etalage_source_image img-responsive" src="images/item1_detail3.png" alt="" />
-                    </li>						</ul>
+                    <!--<li>-->
+                        <!--<img class="etalage_thumb_image img-responsive" src="images/item1_detail2.png" alt="" />-->
+                        <!--<img class="etalage_source_image img-responsive" src="images/item1_detail2.png" alt="" />-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<img class="etalage_thumb_image img-responsive" src="images/item1_detail3.png" alt=""  />-->
+                        <!--<img class="etalage_source_image img-responsive" src="images/item1_detail3.png" alt="" />-->
+                    <!--</li>-->
+                </ul>
 
             </div>
-            <div class="col-md-7 single-top-in">
+            <div class="col-md-7 single-top-in" ng-controller="bookprevCtrl">
                 <div class="single-para">
                     <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
                     <div class="para-grid">
                         <span  class="add-to">100k Đ</span>
-                        <a href="#" class=" cart-to">Add to Cart</a>
+                        <a href="#"  class="cart-to" th:attr="ng-click='addToCart(\''+${product.id}+'\');'" >Add to Cart</a>
                         <div class="clearfix"></div>
                     </div>
                     <h5>100 items in stock</h5>
